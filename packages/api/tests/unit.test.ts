@@ -1,17 +1,17 @@
+import { Server } from '@hapi/hapi';
 import Lab from '@hapi/lab';
 import { expect } from '@hapi/code';
 
-import { init } from '../src/server';
-import { Server } from '@hapi/hapi';
+import { factoryServer } from '../src/server';
 
 const { afterEach, beforeEach, describe, it } = exports.lab = Lab.script();
-
 
 describe('GET /', () => {
   let server: Server;
 
   beforeEach(async () => {
-    server = await init();
+    server = factoryServer();
+    await server.initialize()
   });
 
   afterEach(async () => {

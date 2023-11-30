@@ -1,0 +1,18 @@
+{
+  "name": "@technical-challenge/migration-runner",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "migrate": "node-pg-migrate --tsconfig tsconfig.json -j ts -m migrations",
+    "migrate:up": "yarn migrate up",
+    "migrate:down": "yarn migrate down",
+    "migrate:create ": "yarn migrate create"
+  },
+  "dependencies": {
+    "node-pg-migrate": "^6.2.2",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.2"
+  }
+}

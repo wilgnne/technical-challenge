@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "build": "echo pass",
     "migrate": "node-pg-migrate --tsconfig tsconfig.json -j ts -m migrations",
     "migrate:up": "yarn migrate up",
     "migrate:down": "yarn migrate down",

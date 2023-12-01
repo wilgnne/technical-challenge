@@ -7,7 +7,7 @@
     "migrate": "node-pg-migrate --tsconfig tsconfig.json -j ts -m migrations",
     "migrate:up": "yarn migrate up",
     "migrate:down": "yarn migrate down",
-    "migrate:create ": "yarn migrate create"
+    "migrate:create": "yarn migrate create"
   },
   "dependencies": {
     "node-pg-migrate": "^6.2.2",

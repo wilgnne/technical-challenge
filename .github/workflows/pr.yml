@@ -17,4 +17,8 @@ jobs:
 
     - run: yarn install --frozen-lockfile
     - run: yarn build
-    - run: yarn test
+    - run: yarn test:coverage -r lcov | tail -n +3 | head -n -1 > coverage/lcov.info
+    - uses: romeovs/lcov-reporter-action@v0.2.16
+      with:
+        delete-old-comments: true
+        github-token: ${{ secrets.CODE_COVERAGE_REPORT_TOKEN }}

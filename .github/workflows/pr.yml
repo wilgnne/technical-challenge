@@ -21,4 +21,5 @@ jobs:
     - uses: romeovs/lcov-reporter-action@v0.2.16
       with:
         delete-old-comments: true
+        filter-changed-files: true
         github-token: ${{ secrets.CODE_COVERAGE_REPORT_TOKEN }}

@@ -1,9 +1,7 @@
-import { Request } from "@hapi/hapi";
-
-class RootController {    
-  async get(request: Request) {
-    return "Hello World"
+class RootController {
+  async get() {
+    return "Hello World";
   }
 }
 
-export default RootController
+export default RootController;

@@ -5,4 +5,4 @@ export type DataRowDto = {
   prodId: number;
   value: string;
   data: string;
-}
+};

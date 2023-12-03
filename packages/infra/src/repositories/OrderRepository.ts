@@ -1,13 +1,13 @@
 import { ClientBase } from "pg";
 
-export class OrderRepository {
+class OrderRepository {
   constructor(readonly client: ClientBase) {}
 
   async orderExistById(orderId: number): Promise<boolean> {
     try {
       const result = await this.client.query<{ exists: true }>(
         "SELECT EXISTS (SELECT 1 FROM public.order WHERE public.order.order_id = $1)",
-        [orderId]
+        [orderId],
       );
 
       return result.rows[0]?.exists ?? false;
@@ -17,3 +17,5 @@ export class OrderRepository {
     }
   }
 }
+
+export default OrderRepository;

@@ -1,13 +1,13 @@
 import { ClientBase } from "pg";
 
-export class UserRepository {
+class UserRepository {
   constructor(readonly client: ClientBase) {}
 
   async userExistById(userId: number): Promise<boolean> {
     try {
       const result = await this.client.query<{ exists: true }>(
         "SELECT EXISTS (SELECT 1 FROM public.user WHERE public.user.user_id = $1)",
-        [userId]
+        [userId],
       );
 
       return result.rows[0]?.exists ?? false;
@@ -17,3 +17,5 @@ export class UserRepository {
     }
   }
 }
+
+export default UserRepository;

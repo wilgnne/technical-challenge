@@ -6,11 +6,10 @@
   "scripts": {
     "build": "tsc"
   },
-  "dependencies": {
-    "@technical-challenge/domain": "*",
-    "@technical-challenge/infra": "*"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@hapi/code": "^9.0.3",
+    "@hapi/lab": "^25.1.3",
     "@types/node": "^20.9.0",
     "tsx": "^4.6.0",
     "typescript": "^5.3.2"

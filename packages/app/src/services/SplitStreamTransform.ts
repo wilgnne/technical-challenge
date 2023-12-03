@@ -1,13 +1,17 @@
 import { Transform, TransformCallback } from "node:stream";
 
-export class SplitStreamTransform extends Transform {
+class SplitStreamTransform extends Transform {
   private internalBuffer: string | undefined = "";
 
   constructor(private readonly separator: string | RegExp) {
-    super()
+    super();
   }
 
-  _transform(chunk: string | Buffer, _: BufferEncoding, callback: TransformCallback) {
+  _transform(
+    chunk: string | Buffer,
+    _: BufferEncoding,
+    callback: TransformCallback,
+  ) {
     const chunkBuffer = chunk.toString();
     const buffer = this.internalBuffer + chunkBuffer;
 
@@ -23,3 +27,5 @@ export class SplitStreamTransform extends Transform {
     callback(null, this.internalBuffer);
   }
 }
+
+export default SplitStreamTransform;

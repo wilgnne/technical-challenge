@@ -1,10 +1,10 @@
 import { Readable } from "stream";
 
-export class ReadableString extends Readable {
+class ReadableString extends Readable {
   constructor(private readonly content: string) {
     super({
       highWaterMark: 10,
-    })
+    });
   }
 
   _read(size: number): void {
@@ -13,3 +13,5 @@ export class ReadableString extends Readable {
     this.push(null);
   }
 }
+
+export default ReadableString;

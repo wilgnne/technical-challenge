@@ -1,0 +1,76 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.lint.json"
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript"
+  ],
+  "plugins": [
+    "prettier",
+    "@typescript-eslint",
+    "promise"
+  ],
+  "env": {
+    "es2021": true,
+    "node": true
+  },
+  "rules": {
+    "no-multi-assign": "off",
+    "class-methods-use-this": "warn",
+    "no-underscore-dangle": "off",
+    "no-useless-constructor": "off",
+    "import/no-import-module-exports": [
+      "error",
+      {
+        "exceptions": [
+          "**/*.test.ts"
+        ]
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.ts"
+        ]
+      }
+    ],
+    "no-empty-function": [
+      "error",
+      {
+        "allow": [
+          "constructors"
+        ]
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
+  },
+  "ignorePatterns": [
+    "dist",
+    "node_modules",
+    "examples",
+    "scripts"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": true,
+      "typescript": true
+    }
+  }
+}

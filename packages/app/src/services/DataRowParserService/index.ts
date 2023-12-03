@@ -15,7 +15,7 @@ class DataRowParserService {
     const orderId = Number(raw.slice(55, 65));
     const prodId = Number(raw.slice(65, 75));
     const value = raw.slice(75, 87).trim();
-    const data = raw.slice(87, 95).trim();
+    const date = raw.slice(87, 95).trim();
 
     if (Number.isNaN(userId) || Number.isNaN(orderId) || Number.isNaN(prodId)) {
       throw new InvalidNumberFormatDataRowParserError();
@@ -28,8 +28,8 @@ class DataRowParserService {
       );
     }
 
-    // Verifica se 'data' segue o formato yyyymmdd
-    if (!/^\d{8}$/.test(data)) {
+    // Verifica se 'date' segue o formato yyyymmdd
+    if (!/^\d{8}$/.test(date)) {
       throw new InvalidNumberFormatDataRowParserError(
         "Invalid date format for data",
       );
@@ -41,7 +41,7 @@ class DataRowParserService {
       orderId,
       prodId,
       value,
-      data,
+      date,
     };
   }
 }

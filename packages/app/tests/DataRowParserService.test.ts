@@ -26,7 +26,7 @@ describe("DataRowParserService", () => {
     expect(parsedData.orderId).to.equal(753);
     expect(parsedData.prodId).to.equal(3);
     expect(parsedData.value).to.equal("1836.74");
-    expect(parsedData.data).to.equal("20210308");
+    expect(parsedData.date).to.equal("20210308");
   });
 
   it("should throw InvalidLengthDataRowParseError for invalid length", () => {

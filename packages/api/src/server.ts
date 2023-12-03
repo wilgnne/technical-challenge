@@ -1,7 +1,7 @@
 import Hapi from "@hapi/hapi";
-import { registerRoutes } from "./router";
+import registerRoutes from "./router";
 
-export const factoryServer = () => {
+const factoryServer = () => {
   const server = Hapi.server({
     port: 3000,
     host: "localhost",
@@ -9,3 +9,5 @@ export const factoryServer = () => {
 
   return registerRoutes(server);
 };
+
+export default factoryServer;

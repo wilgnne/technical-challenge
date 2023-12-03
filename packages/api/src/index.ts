@@ -1,5 +1,5 @@
-import { factoryServer } from "./server";
-import { registerPlugins } from "./plugins";
+import factoryServer from "./server";
+import registerPlugins from "./plugins";
 
 const main = async () => {
   const server = factoryServer();

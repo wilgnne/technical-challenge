@@ -2,7 +2,7 @@ import { Server } from "@hapi/hapi";
 
 import RootController from "../controller/RootController";
 
-export const registerRoutes = (server: Server) => {
+const registerRoutes = (server: Server) => {
   const rootControoler = new RootController();
 
   server.route({
@@ -18,3 +18,5 @@ export const registerRoutes = (server: Server) => {
 
   return server;
 };
+
+export default registerRoutes;

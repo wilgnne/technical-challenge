@@ -3,9 +3,9 @@ import inert from "@hapi/inert";
 import Vision from "@hapi/vision";
 import hapiswagger from "hapi-swagger";
 
-import { swaggerOptions } from "./config/swagger";
+import swaggerOptions from "./config/swagger";
 
-export const registerPlugins = async (server: Server): Promise<Server> => {
+const registerPlugins = async (server: Server): Promise<Server> => {
   await server.register([
     inert,
     Vision,
@@ -17,3 +17,5 @@ export const registerPlugins = async (server: Server): Promise<Server> => {
 
   return server;
 };
+
+export default registerPlugins;

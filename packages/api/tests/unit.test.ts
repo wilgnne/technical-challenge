@@ -2,7 +2,7 @@ import { Server } from "@hapi/hapi";
 import Lab from "@hapi/lab";
 import { expect } from "@hapi/code";
 
-import { factoryServer } from "../src/server";
+import factoryServer from "../src/server";
 
 const { afterEach, beforeEach, describe, it } = (exports.lab = Lab.script());
 

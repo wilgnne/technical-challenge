@@ -1,7 +1,5 @@
-import { Request } from "@hapi/hapi";
-
 class RootController {
-  async get(request: Request) {
+  async get() {
     return "Hello World";
   }
 }

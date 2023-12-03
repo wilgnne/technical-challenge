@@ -1,0 +1,48 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.lint.json"
+  },
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript"
+  ],
+  "plugins": [
+    "prettier",
+    "@typescript-eslint",
+    "promise"
+  ],
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "rules": {
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+   ]
+  },
+  "ignorePatterns": [
+    "dist",
+    "node_modules",
+    "examples",
+    "scripts"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": true,
+      "typescript": true
+    }
+  }
+}

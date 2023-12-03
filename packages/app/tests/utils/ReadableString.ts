@@ -4,7 +4,7 @@ export class ReadableString extends Readable {
   constructor(private readonly content: string) {
     super({
       highWaterMark: 10,
-    })
+    });
   }
 
   _read(size: number): void {

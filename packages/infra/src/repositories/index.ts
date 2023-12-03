@@ -1,2 +1,2 @@
 export { UserRepository } from "./UserRepository";
-export { OrderRepository } from "./OrderRepository"
+export { OrderRepository } from "./OrderRepository";

@@ -1,6 +1,6 @@
 import { Server } from "@hapi/hapi";
 import inert from "@hapi/inert";
-import Vision from "@hapi/vision"
+import Vision from "@hapi/vision";
 import hapiswagger from "hapi-swagger";
 
 import { swaggerOptions } from "./config/swagger";
@@ -11,9 +11,9 @@ export const registerPlugins = async (server: Server): Promise<Server> => {
     Vision,
     {
       plugin: hapiswagger,
-      options: swaggerOptions
-    }
+      options: swaggerOptions,
+    },
   ]);
 
-  return server
-}
+  return server;
+};

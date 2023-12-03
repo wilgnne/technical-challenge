@@ -1,2 +1,2 @@
 export { DbProvider } from "./db";
-export { UserRepository, OrderRepository } from "./repositories"
+export { UserRepository, OrderRepository } from "./repositories";

@@ -7,7 +7,7 @@ export class OrderRepository {
     try {
       const result = await this.client.query<{ exists: true }>(
         "SELECT EXISTS (SELECT 1 FROM public.order WHERE public.order.order_id = $1)",
-        [orderId]
+        [orderId],
       );
 
       return result.rows[0]?.exists ?? false;

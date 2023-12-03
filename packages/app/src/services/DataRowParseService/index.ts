@@ -1,5 +1,8 @@
 import { DataRowDto } from "../../dtos/DataRowDto";
-import { InvalidLengthDataRowParseError, InvalidNumberFormatDataRowParseError } from "./exeptions";
+import {
+  InvalidLengthDataRowParseError,
+  InvalidNumberFormatDataRowParseError,
+} from "./exeptions";
 
 export class DataRowParserService {
   parse(raw: string): DataRowDto {
@@ -20,12 +23,16 @@ export class DataRowParserService {
 
     // Verifica se 'value' segue o formato decimal
     if (!/^\d+(\.\d{1,2})?$/.test(value)) {
-      throw new InvalidNumberFormatDataRowParseError("Invalid decimal format for value");
+      throw new InvalidNumberFormatDataRowParseError(
+        "Invalid decimal format for value",
+      );
     }
 
     // Verifica se 'data' segue o formato yyyymmdd
     if (!/^\d{8}$/.test(data)) {
-      throw new InvalidNumberFormatDataRowParseError("Invalid date format for data");
+      throw new InvalidNumberFormatDataRowParseError(
+        "Invalid date format for data",
+      );
     }
 
     return {
@@ -35,6 +42,6 @@ export class DataRowParserService {
       prodId,
       value,
       data,
-    }
+    };
   }
 }

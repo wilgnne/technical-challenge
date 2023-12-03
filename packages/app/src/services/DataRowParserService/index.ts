@@ -1,13 +1,13 @@
 import { DataRowDto } from "../../dtos/DataRowDto";
 import {
-  InvalidLengthDataRowParseError,
-  InvalidNumberFormatDataRowParseError,
+  InvalidLengthDataRowParserError,
+  InvalidNumberFormatDataRowParserError,
 } from "./exeptions";
 
-export class DataRowParserService {
+class DataRowParserService {
   parse(raw: string): DataRowDto {
     if (raw.length !== 95) {
-      throw new InvalidLengthDataRowParseError();
+      throw new InvalidLengthDataRowParserError();
     }
 
     const userId = Number(raw.slice(0, 10));
@@ -17,20 +17,20 @@ export class DataRowParserService {
     const value = raw.slice(75, 87).trim();
     const data = raw.slice(87, 95).trim();
 
-    if (isNaN(userId) || isNaN(orderId) || isNaN(prodId)) {
-      throw new InvalidNumberFormatDataRowParseError();
+    if (Number.isNaN(userId) || Number.isNaN(orderId) || Number.isNaN(prodId)) {
+      throw new InvalidNumberFormatDataRowParserError();
     }
 
     // Verifica se 'value' segue o formato decimal
     if (!/^\d+(\.\d{1,2})?$/.test(value)) {
-      throw new InvalidNumberFormatDataRowParseError(
+      throw new InvalidNumberFormatDataRowParserError(
         "Invalid decimal format for value",
       );
     }
 
     // Verifica se 'data' segue o formato yyyymmdd
     if (!/^\d{8}$/.test(data)) {
-      throw new InvalidNumberFormatDataRowParseError(
+      throw new InvalidNumberFormatDataRowParserError(
         "Invalid date format for data",
       );
     }
@@ -45,3 +45,5 @@ export class DataRowParserService {
     };
   }
 }
+
+export default DataRowParserService;

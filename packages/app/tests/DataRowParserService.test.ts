@@ -1,11 +1,11 @@
 import Lab from "@hapi/lab";
 import { expect } from "@hapi/code";
 
-import { DataRowParserService } from "../src/services/DataRowParseService";
+import DataRowParserService from "../src/services/DataRowParserService";
 import {
-  InvalidLengthDataRowParseError,
-  InvalidNumberFormatDataRowParseError,
-} from "../src/services/DataRowParseService/exeptions";
+  InvalidLengthDataRowParserError,
+  InvalidNumberFormatDataRowParserError,
+} from "../src/services/DataRowParserService/exeptions";
 
 const { before, describe, it } = (exports.lab = Lab.script());
 
@@ -35,7 +35,7 @@ describe("DataRowParserService", () => {
 
     expect(() => {
       dataRowParserService.parse(rawData);
-    }).to.throw(InvalidLengthDataRowParseError);
+    }).to.throw(InvalidLengthDataRowParserError);
   });
 
   it("should throw InvalidNumberFormatDataRowParseError for invalid decimal format in value", () => {
@@ -44,7 +44,7 @@ describe("DataRowParserService", () => {
 
     expect(() => {
       dataRowParserService.parse(rawData);
-    }).to.throw(InvalidNumberFormatDataRowParseError);
+    }).to.throw(InvalidNumberFormatDataRowParserError);
   });
 
   it("should throw InvalidNumberFormatDataRowParseError for invalid date format in data", () => {
@@ -53,7 +53,7 @@ describe("DataRowParserService", () => {
 
     expect(() => {
       dataRowParserService.parse(rawData);
-    }).to.throw(InvalidNumberFormatDataRowParseError);
+    }).to.throw(InvalidNumberFormatDataRowParserError);
   });
 
   it("Throws InvalidNumberFormatDataRowParseError for NaN in userId", () => {
@@ -62,7 +62,7 @@ describe("DataRowParserService", () => {
 
     expect(() => {
       dataRowParserService.parse(rawData);
-    }).to.throw(InvalidNumberFormatDataRowParseError);
+    }).to.throw(InvalidNumberFormatDataRowParserError);
   });
 
   it("Throws InvalidNumberFormatDataRowParseError for NaN in orderId", () => {
@@ -71,7 +71,7 @@ describe("DataRowParserService", () => {
 
     expect(() => {
       dataRowParserService.parse(rawData);
-    }).to.throw(InvalidNumberFormatDataRowParseError);
+    }).to.throw(InvalidNumberFormatDataRowParserError);
   });
 
   it("Throws InvalidNumberFormatDataRowParseError for NaN in prodId", () => {
@@ -80,6 +80,6 @@ describe("DataRowParserService", () => {
 
     expect(() => {
       dataRowParserService.parse(rawData);
-    }).to.throw(InvalidNumberFormatDataRowParseError);
+    }).to.throw(InvalidNumberFormatDataRowParserError);
   });
 });

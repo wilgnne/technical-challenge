@@ -1,10 +1,10 @@
 import Lab from "@hapi/lab";
 import { expect } from "@hapi/code";
 
-import { SplitStreamTransform } from "../src/services/SplitStreamTransform";
+import SplitStreamTransform from "../src/services/SplitStreamTransform";
 
-import { ReadableString } from "./utils/ReadableString";
-import { countWrites } from "./utils/countWrites";
+import ReadableString from "./utils/ReadableString";
+import countWrites from "./utils/countWrites";
 
 const { describe, it } = (exports.lab = Lab.script());
 

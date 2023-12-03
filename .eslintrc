@@ -18,11 +18,30 @@
     "promise"
   ],
   "env": {
-    "es6": true,
+    "es2021": true,
     "node": true
   },
   "rules": {
+    "no-multi-assign": "off",
+    "class-methods-use-this": "warn",
+    "no-underscore-dangle": "off",
     "no-useless-constructor": "off",
+    "import/no-import-module-exports": [
+      "error",
+      {
+        "exceptions": [
+          "**/*.test.ts"
+        ]
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.ts"
+        ]
+      }
+    ],
     "no-empty-function": [
       "error",
       {

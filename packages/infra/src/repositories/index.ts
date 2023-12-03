@@ -1,2 +1,4 @@
-export { UserRepository } from "./UserRepository";
-export { OrderRepository } from "./OrderRepository";
+import OrderRepository from "./OrderRepository";
+import UserRepository from "./UserRepository";
+
+export { OrderRepository, UserRepository };

@@ -1,6 +1,6 @@
 import { ClientBase } from "pg";
 
-export class UserRepository {
+class UserRepository {
   constructor(readonly client: ClientBase) {}
 
   async userExistById(userId: number): Promise<boolean> {
@@ -17,3 +17,5 @@ export class UserRepository {
     }
   }
 }
+
+export default UserRepository;

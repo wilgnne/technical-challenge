@@ -1,8 +1,8 @@
 import { Pool, PoolClient } from "pg";
 
-import { pgConfig } from "../config/pg";
+import pgConfig from "../config/pg";
 
-export class DbProvider {
+class DbProvider {
   private static pool: Pool | null = null;
 
   static getPool(): Pool {
@@ -17,3 +17,5 @@ export class DbProvider {
     return this.getPool().connect();
   }
 }
+
+export default DbProvider;

@@ -517,7 +517,7 @@
 
 "@hapi/eslint-plugin@^6.0.0":
   version "6.0.0"
-  resolved "https://registry.npmjs.org/@hapi/eslint-plugin/-/eslint-plugin-6.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/@hapi/eslint-plugin/-/eslint-plugin-6.0.0.tgz#49c594a927c74fe821c4c5d235b90efcd3c74e80"
   integrity sha512-6eN1fnBO742nTTSpQtYB35aFGAT9I7r4u2v/+R2c9ToYTQp4QBoPOBA5R3+C7+Az3I0ugs+lTIqAsMPDLpsRAg==
 
 "@hapi/file@^3.0.0":

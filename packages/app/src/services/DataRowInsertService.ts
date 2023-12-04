@@ -1,25 +1,27 @@
 import {
-  UserRepository,
-  OrderRepository,
-  ProductRepository,
+  IUserRepository,
+  IOrderRepository,
+  IProductRepository,
 } from "@technical-challenge/infra";
 
 import { DataRowDto } from "../dtos";
 
 class DataRowInsertService {
   constructor(
-    private readonly userRepo: UserRepository,
-    private readonly orderRepo: OrderRepository,
-    private readonly prodRepo: ProductRepository,
+    private readonly userRepo: IUserRepository,
+    private readonly orderRepo: IOrderRepository,
+    private readonly prodRepo: IProductRepository,
   ) {}
 
   async insert(data: DataRowDto): Promise<void> {
-    const userExist = await this.userRepo.existById(data.userId);
+    const userExist = await this.userRepo.existById({ user_id: data.userId });
     if (!userExist) {
       await this.userRepo.insert({ user_id: data.userId, name: data.userName });
     }
 
-    const orderExist = await this.orderRepo.existById(data.orderId);
+    const orderExist = await this.orderRepo.existById({
+      order_id: data.orderId,
+    });
     if (!orderExist) {
       await this.orderRepo.insert({
         order_id: data.orderId,

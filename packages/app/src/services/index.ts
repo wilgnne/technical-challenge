@@ -1,4 +1,7 @@
 import SplitStreamTransform from "./SplitStreamTransform";
 import DataRowInsertWritable from "./DataRowInsertWritable";
+import StreamFileUploadService from "./StreamFileUploadService";
 
-export { SplitStreamTransform, DataRowInsertWritable };
+export * from "./types";
+
+export { SplitStreamTransform, DataRowInsertWritable, StreamFileUploadService };

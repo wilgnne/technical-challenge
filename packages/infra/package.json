@@ -7,6 +7,7 @@
     "build": "tsc"
   },
   "dependencies": {
+    "@technical-challenge/domain": "*",
     "pg": "^8.11.3"
   },
   "devDependencies": {

@@ -6,7 +6,9 @@
   "scripts": {
     "build": "tsc"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@technical-challenge/infra": "*"
+  },
   "devDependencies": {
     "@hapi/code": "^9.0.3",
     "@hapi/lab": "^25.1.3",

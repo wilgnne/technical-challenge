@@ -1,4 +1,4 @@
-import OrderRepository from "./OrderRepository";
-import UserRepository from "./UserRepository";
-
-export { OrderRepository, UserRepository };
+export * from "./ProductRepository";
+export * from "./OrderRepository";
+export * from "./UserRepository";
+export * from "./types";

@@ -1,21 +1,25 @@
+import { User } from "@technical-challenge/domain";
 import { ClientBase } from "pg";
+import { IRepository } from "./types";
 
-class UserRepository {
-  constructor(readonly client: ClientBase) {}
+export type IUserRepository = IRepository<User, "user_id">;
 
-  async userExistById(userId: number): Promise<boolean> {
-    try {
-      const result = await this.client.query<{ exists: true }>(
-        "SELECT EXISTS (SELECT 1 FROM public.user WHERE public.user.user_id = $1)",
-        [userId],
-      );
+export class UserRepository implements IUserRepository {
+  constructor(private readonly client: ClientBase) {}
 
-      return result.rows[0]?.exists ?? false;
-    } catch (error) {
-      console.error("Erro ao verificar existência do usuário por ID:", error);
-      throw error;
-    }
+  async existById(keys: Pick<User, "user_id">): Promise<boolean> {
+    const result = await this.client.query<{ exists: true }>(
+      "SELECT EXISTS (SELECT 1 FROM public.user WHERE public.user.user_id = $1)",
+      [keys.user_id],
+    );
+
+    return result.rows[0]?.exists ?? false;
+  }
+
+  async insert(user: User): Promise<void> {
+    await this.client.query(
+      "INSERT INTO public.user (user_id, name) VALUES ($1, $2)",
+      [user.user_id, user.name],
+    );
   }
 }
-
-export default UserRepository;

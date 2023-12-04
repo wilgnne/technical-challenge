@@ -9,6 +9,7 @@ const swaggerOptions: HapiSwagger.RegisterOptions = {
       email: "wilgnne.kba@gmail.com",
     },
   },
+  OAS: "v3.0",
   documentationPath: "/swagger",
 };
 

@@ -4,5 +4,5 @@ export type DataRowDto = {
   orderId: number;
   prodId: number;
   value: string;
-  data: string;
+  date: string;
 };

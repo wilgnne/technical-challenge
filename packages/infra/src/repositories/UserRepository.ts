@@ -1,13 +1,16 @@
 import { User } from "@technical-challenge/domain";
 import { ClientBase } from "pg";
+import { IRepository } from "./types";
 
-class UserRepository {
+export type IUserRepository = IRepository<User, "user_id">;
+
+export class UserRepository implements IUserRepository {
   constructor(private readonly client: ClientBase) {}
 
-  async existById(userId: number): Promise<boolean> {
+  async existById(keys: Pick<User, "user_id">): Promise<boolean> {
     const result = await this.client.query<{ exists: true }>(
       "SELECT EXISTS (SELECT 1 FROM public.user WHERE public.user.user_id = $1)",
-      [userId],
+      [keys.user_id],
     );
 
     return result.rows[0]?.exists ?? false;
@@ -20,5 +23,3 @@ class UserRepository {
     );
   }
 }
-
-export default UserRepository;

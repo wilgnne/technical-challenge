@@ -1,14 +1,18 @@
-import { Order } from "@technical-challenge/domain";
-
 import { ClientBase } from "pg";
 
-class OrderRepository {
+import { Order } from "@technical-challenge/domain";
+
+import { IRepository } from "./types";
+
+export type IOrderRepository = IRepository<Order, "order_id">;
+
+export class OrderRepository implements IOrderRepository {
   constructor(private readonly client: ClientBase) {}
 
-  async existById(orderId: number): Promise<boolean> {
+  async existById(keys: Pick<Order, "order_id">): Promise<boolean> {
     const result = await this.client.query<{ exists: true }>(
       "SELECT EXISTS (SELECT 1 FROM public.order WHERE public.order.order_id = $1)",
-      [orderId],
+      [keys.order_id],
     );
 
     return result.rows[0]?.exists ?? false;
@@ -21,5 +25,3 @@ class OrderRepository {
     );
   }
 }
-
-export default OrderRepository;

@@ -1,5 +1,6 @@
 import Hapi from "@hapi/hapi";
-import registerRoutes from "./router";
+
+import registerControllers from "./controller";
 
 const factoryServer = () => {
   const server = Hapi.server({
@@ -7,7 +8,7 @@ const factoryServer = () => {
     host: "localhost",
   });
 
-  return registerRoutes(server);
+  return registerControllers(server);
 };
 
 export default factoryServer;

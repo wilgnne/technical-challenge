@@ -1,19 +1,20 @@
 import {
-  IUserRepository,
   IOrderRepository,
   IProductRepository,
+  IUserRepository,
 } from "@technical-challenge/infra";
 
 import { DataRowDto } from "../dtos";
+import { EIfExist, IDataRowInsertStrategy } from "./types";
 
-class DataRowInsertService {
+class BasicDataRowInsertStrategy implements IDataRowInsertStrategy {
   constructor(
     private readonly userRepo: IUserRepository,
     private readonly orderRepo: IOrderRepository,
     private readonly prodRepo: IProductRepository,
   ) {}
 
-  async insert(data: DataRowDto): Promise<void> {
+  async insert(data: DataRowDto, ifExist: EIfExist): Promise<boolean> {
     const userExist = await this.userRepo.existById({ user_id: data.userId });
     if (!userExist) {
       await this.userRepo.insert({ user_id: data.userId, name: data.userName });
@@ -30,12 +31,23 @@ class DataRowInsertService {
       });
     }
 
+    const prodExist = await this.prodRepo.existById({
+      product_id: data.prodId,
+      order_id: data.orderId,
+    });
+
+    if (prodExist && ifExist === EIfExist.SKIP) return false;
+    if (prodExist && ifExist === EIfExist.REPLACE)
+      throw new Error("Product alredy exist");
+
     await this.prodRepo.insert({
       product_id: data.prodId,
       order_id: data.orderId,
       value: data.value,
     });
+
+    return true;
   }
 }
 
-export default DataRowInsertService;
+export default BasicDataRowInsertStrategy;

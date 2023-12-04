@@ -1,9 +1,18 @@
 import { Server } from "@hapi/hapi";
 
-import RootController from "./RootController";
+import { FileUploadServiceFactory } from "../factories";
 
-const registerControllers = (server: Server) => {
+import RootController from "./RootController";
+import RawFileUploadController from "./FileUploadController/RawFileUploadController";
+
+const registerControllers = (
+  server: Server,
+  fileUploadServiceFactory: FileUploadServiceFactory,
+) => {
   server.route(new RootController().buildRoute());
+  server.route(
+    new RawFileUploadController(fileUploadServiceFactory).buildRoute(),
+  );
 
   return server;
 };

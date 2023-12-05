@@ -27,6 +27,12 @@ Este repositório contém a documentação da API para o desafio técnico. A API
 ### Processamento Sob Demanda com Streams do Node.js
 Para otimizar o processamento de dados e melhorar o desempenho da aplicação, Streams do Node.js são utilizadas. Streams proporcionam uma maneira eficiente de lidar com grandes conjuntos de dados, permitindo o processamento sob demanda e evitando a necessidade de carregar todos os dados na memória de uma vez. Isso é especialmente útil ao lidar com operações de leitura e gravação de dados, garantindo uma resposta eficiente e escalável da API.
 
+Para visualizar o pipeline de processamento em detalhes, consulte o [diagrama de fluxo do pipeline](https://github.com/wilgnne/technical-challenge/blob/main/docs/file-upload-pipeline.md).
+
+### Modelo de Entidade-Relacionamento (ER)
+
+Consulte o [Diagrama de ER](https://github.com/wilgnne/technical-challenge/blob/main/docs/er-diagram.md) para uma visão rápida da estrutura de dados do sistema, incluindo as entidades "Usuário," "Pedido" e "Produto," bem como seus relacionamentos. Este diagrama é essencial para uma compreensão visual da organização dos dados.
+
 ### Pré-requisitos:
 
 1. Certifique-se de ter o Docker e o Docker Compose instalados em seu sistema. Se ainda não tiver, siga as instruções de instalação para [Docker](https://docs.docker.com/get-docker/) e [Docker Compose](https://docs.docker.com/compose/install/).

@@ -6,15 +6,14 @@
   "scripts": {
     "start": "node .",
     "dev": "tsx watch src/index.ts",
-    "build": "tsc",
-    "test": "lab --typescript -v **/*.test.ts",
-    "test:coverage": "lab --typescript -c -v **/*.test.ts"
+    "build": "tsc"
   },
   "dependencies": {
     "@hapi/hapi": "^21.3.2",
     "@hapi/inert": "^7.1.0",
     "@hapi/vision": "^7.0.3",
-    "@technical-challenge/domain": "*",
+    "@technical-challenge/app": "*",
+    "@technical-challenge/infra": "*",
     "hapi-swagger": "^17.2.0",
     "joi": "^17.11.0"
   },

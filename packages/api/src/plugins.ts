@@ -1,19 +1,24 @@
 import { Server } from "@hapi/hapi";
 import inert from "@hapi/inert";
-import Vision from "@hapi/vision"
+import Vision from "@hapi/vision";
 import hapiswagger from "hapi-swagger";
+import Joi from "joi";
 
-import { swaggerOptions } from "./config/swagger";
+import swaggerOptions from "./config/swagger";
 
-export const registerPlugins = async (server: Server): Promise<Server> => {
+const registerPlugins = async (server: Server): Promise<Server> => {
   await server.register([
     inert,
     Vision,
     {
       plugin: hapiswagger,
-      options: swaggerOptions
-    }
+      options: swaggerOptions,
+    },
   ]);
 
-  return server
-}
+  server.validator(Joi);
+
+  return server;
+};
+
+export default registerPlugins;

@@ -1,27 +1,36 @@
-import { Server } from '@hapi/hapi';
-import Lab from '@hapi/lab';
-import { expect } from '@hapi/code';
+import { Server } from "@hapi/hapi";
+import Lab from "@hapi/lab";
+import { expect } from "@hapi/code";
 
-import { factoryServer } from '../src/server';
+import { IFileUploadService } from "@technical-challenge/app";
 
-const { afterEach, beforeEach, describe, it } = exports.lab = Lab.script();
+import factoryServer from "../src/server";
 
-describe('GET /', () => {
+const { afterEach, beforeEach, describe, it } = (exports.lab = Lab.script());
+
+describe("GET /", () => {
   let server: Server;
 
   beforeEach(async () => {
-    server = factoryServer();
-    await server.initialize()
+    const fileUploadServiceFactory = () =>
+      Promise.resolve<IFileUploadService>({
+        handler() {
+          return Promise.resolve({ rowsInserted: 0 });
+        },
+      });
+
+    server = factoryServer(fileUploadServiceFactory);
+    await server.initialize();
   });
 
   afterEach(async () => {
     await server.stop();
   });
 
-  it('responds with 200', async () => {
+  it("responds with 200", async () => {
     const res = await server.inject({
-      method: 'get',
-      url: '/'
+      method: "get",
+      url: "/",
     });
     expect(res.statusCode).to.equal(200);
   });

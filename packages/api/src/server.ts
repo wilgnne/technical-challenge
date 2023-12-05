@@ -1,11 +1,19 @@
-import Hapi from "@hapi/hapi"
-import { registerRoutes } from "./router";
+import Hapi from "@hapi/hapi";
 
-export const factoryServer = () => {
+import { OrderService } from "@technical-challenge/app";
+import registerControllers from "./controller";
+import { FileUploadServiceFactory } from "./factories";
+
+const factoryServer = (
+  fileUploadServiceFactory: FileUploadServiceFactory,
+  orderService: OrderService,
+) => {
   const server = Hapi.server({
-    port: 3000,
-    host: 'localhost'
+    port: process.env.PORT ?? 3000,
+    host: "0.0.0.0",
   });
 
-  return registerRoutes(server);
-}
+  return registerControllers(server, fileUploadServiceFactory, orderService);
+};
+
+export default factoryServer;

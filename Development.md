@@ -16,8 +16,8 @@ Se você deseja contribuir para o desenvolvimento do projeto ou executá-lo em m
 1. **Clone este Repositório:**
 
    ```bash
-   git clone <URL_DO_REPOSITORIO>
-   cd <NOME_DO_REPOSITORIO>
+   git clone https://github.com/wilgnne/technical-challenge.git
+   cd technical-challenge
    ```
 
 2. **Instale as Dependências:**

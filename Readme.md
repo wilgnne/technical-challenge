@@ -13,8 +13,8 @@ Este repositório contém a documentação da API para o desafio técnico. A API
 1. **Clone este Repositório:**
 
    ```bash
-   git clone <URL_DO_REPOSITORIO>
-   cd <NOME_DO_REPOSITORIO>
+   git clone https://github.com/wilgnne/technical-challenge.git
+   cd technical-challenge
    ```
 
 2. **Levante os Contêineres:**

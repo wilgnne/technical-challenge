@@ -3,6 +3,7 @@ import {
   DataRowInsertWritable,
   EIfExist,
   InLineDataRowParser,
+  OrderService,
   SplitStreamTransform,
   StreamFileUploadService,
   StreamFileUploadTransactionWrapper,
@@ -15,7 +16,7 @@ import {
   UserRepository,
 } from "@technical-challenge/infra";
 
-import { FileUploadServiceFactory } from "./types";
+import { FileUploadServiceFactory, OrderServiceFactory } from "./types";
 
 export * from "./types";
 
@@ -39,4 +40,10 @@ export const fileUploadServiceFactory: FileUploadServiceFactory = async (
     ),
     client,
   );
+};
+
+export const orderServiceFactory: OrderServiceFactory = async () => {
+  const client = await DbProvider.getConnection();
+
+  return new OrderService(new OrderRepository(client));
 };

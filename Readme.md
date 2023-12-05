@@ -4,6 +4,29 @@
 
 Este repositório contém a documentação da API para o desafio técnico. A API foi projetada para gerenciar pedidos, produtos e informações do usuário de um sistema legado. Abaixo está uma visão geral da estrutura e funcionalidade da API.
 
+## Stack do Projeto
+
+### Framework e Servidor HTTP
+- **@hapi/hapi (^21.3.2):** O framework Hapi.js foi escolhido para facilitar o desenvolvimento da API. Sua abordagem modular e configuração centrada em plugins proporciona uma estrutura robusta para construir aplicativos web.
+
+### Plugins Hapi
+- **@hapi/inert (^7.1.0):** O plugin Inert é utilizado para lidar com ativos estáticos (por exemplo, arquivos CSS, imagens) e fornece suporte para manipulação de arquivos no servidor.
+
+- **@hapi/vision (^7.0.3):** O plugin Vision é utilizado para integração com mecanismos de modelo de visualização. Ele é essencial para a renderização de respostas HTML dinâmicas.
+
+- **hapi-swagger (^17.2.0):** O hapi-swagger é incorporado para facilitar a documentação da API com Swagger. Ele gera automaticamente uma interface interativa baseada em GUI que simplifica o entendimento e teste da API.
+
+### Validação de Dados
+- **joi (^17.11.0):** O Joi é utilizado para validação de dados. Ele ajuda a garantir que os dados recebidos pela API estejam em conformidade com as expectativas, aumentando a segurança e robustez do sistema.
+
+### Banco de Dados
+- **pg (^8.11.3):** O módulo pg é utilizado para interagir com o banco de dados PostgreSQL. Ele fornece uma camada de abstração para realizar consultas SQL no banco de dados.
+
+- **node-pg-migrate (^6.2.2):** Node-pg-migrate é utilizado para facilitar a migração do esquema do banco de dados. Ele permite gerenciar as alterações no banco de dados de maneira organizada e controlada.
+
+### Processamento Sob Demanda com Streams do Node.js
+Para otimizar o processamento de dados e melhorar o desempenho da aplicação, Streams do Node.js são utilizadas. Streams proporcionam uma maneira eficiente de lidar com grandes conjuntos de dados, permitindo o processamento sob demanda e evitando a necessidade de carregar todos os dados na memória de uma vez. Isso é especialmente útil ao lidar com operações de leitura e gravação de dados, garantindo uma resposta eficiente e escalável da API.
+
 ### Pré-requisitos:
 
 1. Certifique-se de ter o Docker e o Docker Compose instalados em seu sistema. Se ainda não tiver, siga as instruções de instalação para [Docker](https://docs.docker.com/get-docker/) e [Docker Compose](https://docs.docker.com/compose/install/).

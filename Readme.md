@@ -70,7 +70,7 @@ Agora você tem o ambiente configurado e a aplicação pronta para uso. Se encon
 - **Responses:**
   - `200` - Successful
     - Content:
-      - `application/json`: [Model4]
+      - `application/json`
 
 ### 2. File Upload (Raw)
 
@@ -85,7 +85,22 @@ Agora você tem o ambiente configurado e a aplicação pronta para uso. Se encon
 - **Responses:**
   - `200` - Successful
     - Content:
-      - `application/json`: [Model5]
+      - `application/json`
+
+### 2. File Upload (multipart/form-data)
+
+- **Endpoint:** `/file-upload/form`
+- **Method:** POST
+- **Summary:** Receba um arquivo do sistema legado por multipart/form-data.
+- **Parameters:**
+  - `ifExist` (query, type: string, enum: ["SKIP", "REPLACE", "ERROR"])
+- **Tags:** file-upload
+- **Request Body:**
+  - `multipart/form-data`
+- **Responses:**
+  - `200` - Successful
+    - Content:
+      - `application/json`
 
 ## Uso
 

@@ -6,6 +6,7 @@ import { FileUploadServiceFactory } from "../factories";
 import RootController from "./RootController";
 import RawFileUploadController from "./FileUploadController/RawFileUploadController";
 import GetOrdersController from "./OrderController/GetOrdersController";
+import FormFileUploadController from "./FileUploadController/FormFileUploadController";
 
 const registerControllers = (
   server: Server,
@@ -15,6 +16,9 @@ const registerControllers = (
   server.route(new RootController().buildRoute());
   server.route(
     new RawFileUploadController(fileUploadServiceFactory).buildRoute(),
+  );
+  server.route(
+    new FormFileUploadController(fileUploadServiceFactory).buildRoute(),
   );
   server.route(new GetOrdersController(orderService).buildRoute());
 

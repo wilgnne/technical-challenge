@@ -134,3 +134,7 @@ Agora você tem o ambiente configurado e a aplicação pronta para uso. Se encon
 ## Uso
 
 Para usar a API, consulte os endpoints fornecidos com os métodos e parâmetros HTTP correspondentes. Certifique-se de verificar os formatos da solicitação e resposta esperados com base nos modelos fornecidos.
+
+## Execução em Modo de Desenvolvimento
+
+Para iniciar o projeto em modo de desenvolvimento, siga as instruções detalhadas no [Guia de Execução em Modo de Desenvolvimento](https://github.com/wilgnne/technical-challenge/blob/main/Development.md). Este documento fornece passos específicos e informações essenciais para configurar e executar o projeto localmente, garantindo um ambiente de desenvolvimento suave e eficiente. Consulte o guia para obter detalhes sobre a configuração do ambiente, instalação de dependências e execução do projeto em sua máquina.

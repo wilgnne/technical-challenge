@@ -12,6 +12,8 @@
     ]
   },
   "scripts": {
+    "prestart": "yarn workspace @technical-challenge/migration-runner migrate:up",
+    "start": "yarn workspace @technical-challenge/api start",
     "build": "yarn workspaces run build",
     "dev": "yarn workspace @technical-challenge/api dev",
     "watch": "tsc -b ./tsconfig.packages.json --watch",

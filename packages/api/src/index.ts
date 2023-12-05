@@ -1,9 +1,12 @@
 import factoryServer from "./server";
 import registerPlugins from "./plugins";
-import { fileUploadServiceFactory } from "./factories";
+import { fileUploadServiceFactory, orderServiceFactory } from "./factories";
 
 const main = async () => {
-  const server = factoryServer(fileUploadServiceFactory);
+  const server = factoryServer(
+    fileUploadServiceFactory,
+    await orderServiceFactory(),
+  );
 
   await registerPlugins(server);
   await server.start();

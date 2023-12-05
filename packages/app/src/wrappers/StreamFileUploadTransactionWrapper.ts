@@ -15,7 +15,9 @@ class StreamFileUploadTransactionWrapper implements IFileUploadService {
   async handler(stream: Stream): Promise<{ rowsInserted: number }> {
     try {
       await this.client.query("BEGIN");
-      return await this.base.handler(stream);
+      const response = await this.base.handler(stream);
+      await this.client.query("COMMIT");
+      return response;
     } catch (error) {
       await setTimeout(100);
       await this.client.query("ROLLBACK");

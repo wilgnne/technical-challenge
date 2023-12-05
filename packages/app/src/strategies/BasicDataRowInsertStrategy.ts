@@ -37,8 +37,15 @@ class BasicDataRowInsertStrategy implements IDataRowInsertStrategy {
     });
 
     if (prodExist && ifExist === EIfExist.SKIP) return false;
-    if (prodExist && ifExist === EIfExist.REPLACE)
-      throw new Error("Product alredy exist");
+    if (prodExist && ifExist === EIfExist.REPLACE) {
+      await this.prodRepo.update({
+        product_id: data.prodId,
+        order_id: data.orderId,
+        value: data.value,
+      });
+
+      return true;
+    }
 
     await this.prodRepo.insert({
       product_id: data.prodId,

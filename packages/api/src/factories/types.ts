@@ -1,3 +1,11 @@
-import { IFileUploadService } from "@technical-challenge/app";
+import {
+  EIfExist,
+  IFileUploadService,
+  OrderService,
+} from "@technical-challenge/app";
 
-export type FileUploadServiceFactory = () => Promise<IFileUploadService>;
+export type FileUploadServiceFactory = (
+  ifExist?: EIfExist,
+) => Promise<IFileUploadService>;
+
+export type OrderServiceFactory = () => Promise<OrderService>;

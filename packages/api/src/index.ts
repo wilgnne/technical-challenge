@@ -1,3 +1,4 @@
+import "./tracing";
 import factoryServer from "./server";
 import registerPlugins from "./plugins";
 import { fileUploadServiceFactory, orderServiceFactory } from "./factories";
